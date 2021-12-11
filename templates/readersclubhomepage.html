@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            display: grid;
+            grid-template-columns: 25% 50% 25%;
+            grid-template-rows: 50px 1fr 1fr 1fr;
+            background-color: lightblue;
+    
+            height: 100vh;
+            gap: 10px;            
+        }
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .members{
+            border: black solid 5px;
+            grid-area: 2/1/6/2;
+            background-color:rgb(0, 191, 255);
+        }
+        .info{
+            border: black solid 5px;
+            grid-area: 2/2/3/3;
+            background-color:rgb(0, 191, 255);
+        }
+        .leaderboard{
+            border: black solid 5px;
+            grid-area:2/3/6/4 ;
+            background-color:rgb(0, 191, 255);
+        }
+        .suggested_books{
+            border: solid black 5px;
+            grid-area: 3/2/5/3;
+            background-color: rgb(0, 191, 255);
+        }
+        .nav{
+            grid-column: 1/4;
+            
+            }
+            nav{
+                background-color: rgb(0, 139, 160);
+            }
+            nav ul{
+                display: flex;
+                list-style-type: none;
+                justify-content: space-around;
+            }
+            nav a{
+                text-decoration: none;
+                text-transform: uppercase;
+                font-family: sans-serif;
+                color: #24f7ec;    
+            }
+            nav ul li{
+                padding: 10px;                
+            }
+            .btn-gradient {
+    margin-left: 10px;
+    margin-top: 25%;
+    width: 200px;
+    
+    height: 40px;
+    
+    border: none;
+    
+    border-radius: 10px;
+    
+    color: #fff;
+    
+    animation: c 53s linear infinite;
+    
+    background: linear-gradient(
+    
+    121.19deg,
+    
+    rgba(133, 239, 49, 0) 25.73%,
+    
+    hsla(0, 0%, 100%, 0.3) 45.27%,
+    
+    rgba(133, 239, 49, 0) 62.27% ), #24f7ec;
+    
+    transition: background-color 0.5s ease;
+    
+    }
+    
+    .btn-gradient:hover {
+    
+    animation: c 53s linear infinite;
+    
+    background: linear-gradient(
+    
+    121.19deg,
+    
+    rgba(133, 239, 49, 0) 25.73%,
+    
+    hsla(0, 0%, 100%, 0.3) 45.27%,
+    
+    rgba(133, 239, 49, 0) 62.27% ), rgb(0, 139, 160);
+    
+    }
+    
+    @keyframes c {
+    
+    0% {
+    
+    background-position: -5000px 0;
+    
+    }
+    
+    to {
+    
+    background-position: 5000px 0;
+    
+    }
+    
+    }
+    .fd_Form{
+        padding-top: 50px;
+    }
+    </style>
+</head>
+<body>
+   <div class="container">
+    <div class="nav">
+   
+        <nav>
+            <ul>
+                <li><a href="/"><i class="fas fa-home"></i>home </a></li>
+                <li><a href="/quizz"><i class="fas fa-school"></i>quiz and facts</a></li>
+                <li><a href="/library"><i class="fas fa-book-open"></i>How to acess the readers club<i class="fas fa-book-open"></i></a></li>
+            </ul>
+        </nav>
+    </div>       
+       <div class="members">
+        <div class="_members">
+            <a href="/members list">
+                <button type="members" class="btn-gradient">members</button></a>               
+        </div>
+        <div class="fd_Form">
+            <h2>Enter your name</h2>
+            <form action="/home" method="POST">
+            <input type="text" name="user_name" id="">
+            <h2>Feedback</h2>
+            <input type="text" name="feedback" id="">
+            <button type="submit" class="btn-gradient">submit</button>
+            </form>
+            {{message}}  
+            {%if session.get("role")=="admin"%}    
+                <a href="/display_feedback"><button>show the feed back</button></a>
+            {%endif%}          
+        </div>
+       </div>
+       <div class="info">
+           <h2>Now that you have signed in you can you can find yourself in the member’s list. Every once in a week this website will be updated. A leader board will be there above showing the top six people.</h2>
+       </div>
+       <div class="suggested_books">
+           <form action="/good_books" method="POST">
+                <h1>Suggested books</h1>
+
+                <div style="width: 500px; height: 150px; background: white; overflow: scroll;">
+                {%for book in books%}
+                    <h2>{{book}}</h2>
+                    
+                    {%endfor%}
+                </div>
+                <h2>Enter a good book that you know:</h2>
+                <input type="text" name="good_books" id="">
+                <button type="submit" class="btn-gradient" style="margin: 0;">submit</button>
+           </form>
+       </div>
+       <div class="leaderboard">
+           <h1>Leaderboard of the week:</h1>
+           <h1>1st place:{{leaderboard[0]}} </h1>
+           <h2>2nd place:{{leaderboard[1]}} </h2>
+           <h3>3rd place:{{leaderboard[2]}} </h3>
+           <h4>4th place:{{leaderboard[3]}} </h4>
+           <h5>5th place:{{leaderboard[4]}} </h5>
+           <h6>6th place:{{leaderboard[5]}} </h6>
+       </div>
+   </div> 
+</body>
+</html>

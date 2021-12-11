@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .form{
+            background-color: rgb(0, 191, 255);
+            border: solid;
+            width: 50%;
+            line-height: 50px;
+            text-align: center;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            margin: 10% 25% 0 25%;
+            
+        }
+        .form .username , .password{
+            display: grid;
+            grid-template-columns: auto auto;
+            justify-content: space-around;
+        }
+        .form p{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="form">
+        <div class="message">
+            {{message}}
+        </div>
+        <p> Member's Registration Form</p>
+        <form action="/register" method="post">
+
+        <div class="label">
+             Name:
+        </div> 
+        <div class="input">
+            <input type="text" name="name" id="" required>
+        </div>   
+        
+        <div class="label">
+            Username:
+        </div>
+        <div class="input">
+             <input type="text" name="username" id="" required>
+        </div>
+
+        <div class="label">
+            Age:
+        </div>
+        <div class="input">
+            <input type="number" name="age" id="">
+
+        <div class="label">
+            Email:
+        </div>
+        <div class="input">
+             <input type="email" name="email" id="" required> 
+        </div>
+
+        <div class="label">
+            Password:
+        </div>
+        <div class="input">
+             <input type="password" name="password" required>
+        </div>
+
+        <div class="label">
+            Confirm Password:
+        </div>
+        <div class="input">
+             <input type="password" name="confirm_password" id="" required>  
+        </div>
+        
+        <div class= "question">
+            <h2>Gender</h2>                            
+        </div>
+            <div class="opt1">
+                Male
+                <input type="radio" name="gender" id="" value="male" checked>            
+            </div>
+            <div class="opt2">
+                Female
+                <input type="radio" name="gender" id="" value="female">            
+            </div> 
+            <button class="btn_gradient" type= "submit">Submit</button>
+        </form>  
+    </div>      
+</body>
+</html>

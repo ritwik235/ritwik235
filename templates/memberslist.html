@@ -1,0 +1,40 @@
+{%extends "layout.html" %}
+{%block content%}
+                  
+<style>
+  table,th,td{
+    border:solid;
+    font-size: 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;
+    border-collapse: collapse;
+    padding: 20px;
+    }
+    table{
+      margin-left:80%;
+    }
+    th{
+      background: lightgreen;
+      text-transform: uppercase;
+    }
+</style>
+<table>
+  <tr>
+    <th>name</th>
+    <th>username</th>
+    <th>age</th>
+    <th>gender</th>
+  </tr>
+  <tr>
+    {%for user in users%}
+    <td>{{user[1]}}</td>
+    <td>{{user[2]}}</td>
+    <td>{{user[3]}}</td>
+    <td>{{user[6]}}</td>
+  </tr>
+  {%endfor%}
+</table>
+      
+
+
+{%endblock%}

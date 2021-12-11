@@ -1,0 +1,20 @@
+{%extends "layout.html" %}
+{%block content%}
+            
+            <div class="members">
+                <a href="./memberslist"><button class="btn-gradient">members</button></a>               
+            </div>
+            <div class="info">
+               <h3>The Reader’s Club is a club where all the member’s of the club motivate eachother to keep up with their reading habits.<br> They can take part in the competitions conducted.<br>Give book reviews on the book they read.</h3>
+               
+               <h3>I Ritwik Naveen Shetty is the head of the Jr. Reader’s Club and the head teacher of the Reader’s club is Mr. Vipin Sir.<br> The updates for the competition going to be held will be in the leader board in the next page.
+
+               </h3> 
+                  </div>
+            <div class="quote">
+                <h1>Quote of the week</h1>
+                <h2>{{quote}}</h2>
+            </div>
+        </div>
+        {{session["username"]}}
+{%endblock%}

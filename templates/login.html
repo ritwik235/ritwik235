@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../static/readersclubstyle.css">
+    <style>
+        .form{
+            background-color: rgb(0, 191, 255);
+            border: solid;
+            width: 50%;
+            line-height: 50px;
+            text-align: center;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            margin: 10% 25% 0 25%;
+            
+        }
+        .form .username , .password{
+            display: grid;
+            grid-template-columns: auto auto;
+            justify-content: space-around;
+        }
+        .form p{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="form">
+        <div class="message">
+            {{message}}
+        </div>      
+        <p>Readers club website(only for members)</p>
+        <form action="/login" method="POST">  
+            
+            <div class="username">
+                <div class="label">
+                    Username:
+                </div>
+                <div class="input">
+                    <input type="text" name="username" id="" required> 
+                </div>
+            </div>
+        
+            <div class="password"> 
+                <div class="label">
+                    Password:
+                </div>
+                <div class="input">
+                    <input type="password" name="password" id=""required>
+                </div>
+            </div>
+            
+            <div class="role">
+                <div class="label">
+                    User:
+                </div>
+                <input type="radio" name="role" id="" value="user" required>
+                <div class="label">
+                    Admin:
+                </div>
+                <input type="radio" name="role" id="" value="admin" >
+            </div>
+            <div class="button">
+                <button type="submit" class="btn-gradient">Submit</button>         
+            </div>
+        </form>
+        <a href="/">Click here to enter to the home page</a>
+        <div class="message">
+            {{error}}
+        </div>
+    </div>
+    
+
+</body>
+</html>

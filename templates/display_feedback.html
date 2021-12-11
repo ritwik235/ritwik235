@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+  table,th,td{
+    border:solid;
+    font-size: 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;
+    border-collapse: collapse;
+    padding: 20px;
+    }
+    table{
+      margin-left:25%;
+    }
+    th{
+      background: lightgreen;
+      text-transform: uppercase;
+    }
+</style>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Feedback</th>
+        </tr>
+        {%for record in records%}
+        <tr>
+            <td>{{record[0]}}</td>
+            <td>{{record[1]}}</td>
+            <td>{{record[2]}}</td>
+        </tr>
+        {%endfor%}
+    </table>
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+        <title>Reader's club webpage</title>
+        <link rel="stylesheet" href="../static/readersclubstyle.css">
+    </head>
+    <body>
+        <div class="container">
+           
+            <div class="nav">
+              <div class="logo">
+                  <img src="../static/picture of the school logo.PNG" width="100%">
+                  <img src="../static/readers club logo.PNG" width="150px" height="150px">
+            </div>
+               <nav>                
+                <ul>
+                   <li><a href="/"><i class="fas fa-home"></i>home </a></li>
+                   <li><a href="/register"><i class="fas fa-school"></i>register</a></li>
+                   {%if session['login']%}
+                   <li><a href="/home"><i class="fas fa-arrow-right"></i>next page<i class="fas fa-arrow-right"></i></a></li>
+                   <li><a href="/logout"><i class="fas fa-pen"></i>Logout</a></li>
+                   {%else%}
+                   <li><a href="/login"><i class="fas fa-arrow-right"></i>next page<i class="fas fa-arrow-right"></i></a></li>
+
+                   <li><a href="/login"><i class="fas fa-pen"></i>Login</a></li>
+                   {%endif%}
+                   
+                </ul>
+               </nav>
+            </div>
+            {%block content%}
+            {%endblock%}
+        </div>
+    </body>
+</html>
